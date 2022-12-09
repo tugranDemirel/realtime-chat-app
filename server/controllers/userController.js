@@ -59,3 +59,21 @@ export const login = async (req, res, next) => {
        next(e)
    }
 }
+export const setAvatar = async (req, res, next) => {
+    try{
+        const userId = req.params._id
+        const avatarImage = req.body.image
+        const userData = await User.findByIdAndUpdate(userId, {
+            isAvatarImageSet: true,
+            avatarImage
+        })
+        console.log(userData)
+        return res.json({
+            isSet: userData.isAvatarImageSet,
+            image: userData.avatarImage
+        })
+    }catch (e) {
+        console.log(e)
+        next(e)
+    }
+}
