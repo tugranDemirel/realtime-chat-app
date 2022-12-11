@@ -6,6 +6,7 @@ import {allUsersRoute} from "../util/APIRoutes";
 import Contacts from "../components/Contacts";
 import {Welcome} from "../components/Welcome";
 import ChatContainer from "../components/ChatContainer";
+import {io} from 'socket.io-client'
 function Chat(){
     const [contacts, setContacts] = useState([])
     const [currentUser, setCurrentUser] = useState(undefined)
