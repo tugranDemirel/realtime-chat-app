@@ -22,9 +22,12 @@ export default function SetAvatar() {
         theme: "dark"
     }
 
-    useEffect(async () => {
-        if (!localStorage.getItem('chat-app-user'))
-            navigate('/login')
+    useEffect( () => {
+        async function fetchData(){
+            if (!localStorage.getItem('chat-app-user'))
+                navigate('/login')
+        }
+        fetchData()
     }, []);
 
 
